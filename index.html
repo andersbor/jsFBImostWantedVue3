@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
-    
+
     <!-- https://stackoverflow.com/questions/3471157/css-text-transform-capitalize-on-all-caps-->
     <style>
         .capitalizeFirstOnly {
@@ -27,12 +27,13 @@
     <div id="app">
         <h1>FBI most wanted, page {{currentPage}}</h1>
         {{errormessage}}
-        <button v-on:click="previous()" :disabled="currentPage == 1">Prev page</button>
-        <button v-on:click="next()">Next page</button>
+        <button v-on:click="previous()" :disabled="currentPage == 1" class="btn btn-primary">Prev page</button>
+        <button v-on:click="next()" class="btn btn-primary ml-1">Next page</button>
+        <div>Click an item for details</div>
         <div class="container">
             <div class="row">
                 <div class="col-md-5" style="text-align: left">
-                    <ul>
+                    <ul style="list-style-type: none;">
                         <li v-for="item in items">
                             <button v-on:click="getDetails(item.title)" class="btn">
                                 <div class="capitalizeFirstOnly">{{item.title}}</div>

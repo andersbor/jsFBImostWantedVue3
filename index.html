@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI most wanted</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>FBI most wanted, page {{currentPage}}</h1>
+        {{errormessage}}
+        <button v-on:click="previous()" :disabled="currentPage == 1">Prev page</button>
+        <button v-on:click="next()">Next page</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li v-for="item in items">
+                            <button v-on:click="getDetails(item.title)" class="btn">
+                                {{item.title}}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div v-if="detail" class="col-md-6">
+                    <h2 v-if="detail.reward_text"> Reward </h2>
+                    <span v-html="detail.reward_text"></span>
+                    <h2 v-if="detail.details">Details</h2>
+                    <span v-html="detail.details"></span>
+                    <h2 v-if="detail.caution">Caution</h2>
+                    <span v-html="detail.caution"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

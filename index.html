@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
+    
+    <!-- https://stackoverflow.com/questions/3471157/css-text-transform-capitalize-on-all-caps-->
+    <style>
+        .capitalizeFirstOnly {
+            text-transform: lowercase;
+            display: inline-block;
+        }
+
+        .capitalizeFirstOnly::first-line {
+            text-transform: capitalize;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,26 +31,28 @@
         <button v-on:click="next()">Next page</button>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5" style="text-align: left">
                     <ul>
                         <li v-for="item in items">
                             <button v-on:click="getDetails(item.title)" class="btn">
-                                {{item.title}}
+                                <div class="capitalizeFirstOnly">{{item.title}}</div>
                             </button>
                         </li>
                     </ul>
                 </div>
-                <div v-if="detail" class="col-md-6">
-                    <!-- TODO Vue component -->
-                    <div v-if="detail.reward_text">
-                        <h2>Reward</h2>
-                        <span v-html="detail.reward_text"></span>
+                <div class="col-md-7">
+                    <div v-if="detail">
+                        <!-- TODO Vue component -->
+                        <div v-if="detail.reward_text">
+                            <h2>Reward</h2>
+                            <span v-html="detail.reward_text"></span>
+                        </div>
+
+                        <h2 v-if="detail.details">Details</h2>
+                        <span v-html="detail.details"></span>
+                        <h2 v-if="detail.caution">Caution</h2>
+                        <span v-html="detail.caution"></span>
                     </div>
-                    
-                    <h2 v-if="detail.details">Details</h2>
-                    <span v-html="detail.details"></span>
-                    <h2 v-if="detail.caution">Caution</h2>
-                    <span v-html="detail.caution"></span>
                 </div>
             </div>
         </div>

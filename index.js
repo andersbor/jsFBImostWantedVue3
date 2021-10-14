@@ -3,7 +3,7 @@ const baseurl = "https://api.fbi.gov/wanted/v1/list"
 Vue.createApp({
     data() {
         return {
-            currentPage : 1,
+            currentPage: 1,
             items: [],
             errormessage: null,
             title: null,
@@ -26,7 +26,7 @@ Vue.createApp({
             this.detail = this.items.find(item => item.title == title)
         },
         previous() {
-            this.currentPage--,
+            this.currentPage--
             this.getItems()
         },
         next() {
@@ -35,3 +35,4 @@ Vue.createApp({
         }
     }
 }).mount("#app")
+

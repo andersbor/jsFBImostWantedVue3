@@ -8,7 +8,7 @@
     <title>FBI most wanted</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <!-- https://stackoverflow.com/questions/3471157/css-text-transform-capitalize-on-all-caps-->
     <style>
@@ -29,7 +29,7 @@
         {{errormessage}}
         <button v-on:click="previous()" :disabled="currentPage == 1" class="btn btn-primary">Prev page</button>
         <button v-on:click="next()" class="btn btn-primary ml-1">Next page</button>
-        <div>Click an item for details</div>
+        <div>Click an item for details (bottom page)</div>
         <div class="container">
             <div class="row">
                 <div class="col-md-5" style="text-align: left">

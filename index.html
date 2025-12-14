@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FBI most wanted</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <!-- https://stackoverflow.com/questions/3471157/css-text-transform-capitalize-on-all-caps-->
@@ -26,7 +27,7 @@
 <body>
     <div id="app">
         <h1>FBI most wanted, page {{currentPage}}</h1>
-        {{errormessage}}
+        {{errorMessage}}
         <button v-on:click="previous()" :disabled="currentPage == 1" class="btn btn-primary">Prev page</button>
         <button v-on:click="next()" class="btn btn-primary ml-1">Next page</button>
         <div>Click an item for details (bottom page)</div>

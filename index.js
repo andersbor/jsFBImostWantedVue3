@@ -5,7 +5,7 @@ Vue.createApp({
         return {
             currentPage: 1,
             items: [],
-            errormessage: null,
+            errorMessage: null,
             title: null,
             detail: null
         }
